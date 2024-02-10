@@ -14,4 +14,11 @@ public class HomeController {
     public String index(Model model) {
         return "index";
     }
+
+    @GetMapping("/era")
+    public String checkEra() {
+        return "EraHun";
+    }
+
+
 }
