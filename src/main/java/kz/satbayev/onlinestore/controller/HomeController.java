@@ -20,5 +20,10 @@ public class HomeController {
         return "EraHun";
     }
 
+    @GetMapping("/test-1")
+    public String test() {
+        return "test";
+    }
+
 
 }
