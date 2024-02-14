@@ -1,0 +1,9 @@
+/* main.css */
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: #b00909;
+    text-align: center;
+    padding: 10px;
+}
+
