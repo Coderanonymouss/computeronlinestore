@@ -1,5 +1,6 @@
 kz\satbayev\onlinestore\ComputerStoreApplication.class
+kz\satbayev\onlinestore\model\entity\ShopItemsRepository.class
+kz\satbayev\onlinestore\config\WebMvcConfig.class
 kz\satbayev\onlinestore\controller\HomeController.class
 kz\satbayev\onlinestore\model\entity\ShopItems.class
 kz\satbayev\onlinestore\service\ItemService.class
-kz\satbayev\onlinestore\config\WebMvcConfig.class
