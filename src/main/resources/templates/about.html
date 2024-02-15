@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/main.html"
@@ -20,8 +21,24 @@
 
     <meta charset="UTF-8">
     <title>computerstore</title>
+    <style>
+        .bg-custom {
+            background-color: #f0f0f0; /* Цвет фона */
+        }
+
+        .gallery-image {
+            border-radius: 10px; /* закругление углов */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень */
+        }
+
+        .carousel-control-next-icon {
+            color: red;
+            font-size: 2rem;
+        }
+
+    </style>
 </head>
-<body>
+<body class="bg-custom">
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #820011">
         <div class="container-fluid">
@@ -77,33 +94,96 @@
     </nav>
 </div>  <!--navbar-->
 
-<h1 class="display-1 text-center">This is an online store &#128521;</h1>
-<h4 class="display-1 text-center">
-    Топ мүшелері: Ернар Амангелді, Дінислам Абдуали
-    Жоба тақырыбы: Computer store(Интернет магазин)
-    2 тапсырма
-    Интернет дүкеннің мақсаты:
-    Әдетте ноутбуктің характеристикасын жинағанда жеке жеке сатып алу қиындықтар туғызып жатады. Біздің Интернет магазиннің мақсаты клиент өзіне керекті компъютердің бөлшектерін жинап бағасын көре алады. Жәнеде
-    Барлық жиналған товардың суммасын біле алады. Таңдалған тауар АДМИН бөлімінде клиенттің авторизацияда тіркелген аты жөні бойынша Товар бөлімінде сақталады.
-    Computer store дүкені клиентпен саудагердің арасындағы байланысты жеңілдетеді
+<div class="container mt-5">
+    <h1 class="display-1 text-center">This is an online store &#128521;</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th scope="row">Топ мүшелері</th>
+                        <td>Ернар Амангелді, Дінислам Абдуали</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Жоба тақырыбы</th>
+                        <td>Computer store(Интернет магазин)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Тапсырма</th>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Интернет дүкеннің мақсаты</th>
+                        <td>Әдетте ноутбуктің характеристикасын жинағанда жеке жеке сатып алу қиындықтар туғызып жатады.
+                            Біздің Интернет магазиннің мақсаты клиент өзіне керекті компъютердің бөлшектерін жинап
+                            бағасын көре алады. Жәнеде Барлық жиналған товардың суммасын біле алады. Таңдалған тауар
+                            АДМИН бөлімінде клиенттің авторизацияда тіркелген аты жөні бойынша Товар бөлімінде
+                            сақталады. Computer store дүкені клиентпен саудагердің арасындағы байланысты жеңілдетеді
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CLIENT:</th>
+                        <td>Компьютердің бөлшектерін құрастыра алады
+                            Өзі құрған тауарлардың тізімін көре алады
+                            Тауардың бағасын көре алады
+                            Қазақша және ағылшын тілінде беткі жазбаларды өзгерте алады
+                            Сайттан іздеу жасай алады
+                            Сатылымда тұрғанда продуктті көре алады
+                            CRUD
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ADMIN:</th>
+                        <td>Компьютердің бөлшектерін құрастыра алады
+                            Қазақша және ағылшын тілінде беткі жазбаларды өзгерте алады
+                            Сайттан іздеу жасай алады
+                            Сатылымда тұрғанда продуктті көре алады
+                            Сатылымда тұрғанда продуктке өзгеріс енгізе алады
+                            Жаңадан тауар қоса алады
+                            Заказ берген клиенттердің сборкасын тізімін көре алады
+                            CRUD
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100 gallery-image"
+                        src="https://andpro.ru/upload/iblock/7ba/buildin_pc_mini.jpg"
+                         width="600" height="400"
+                         alt="Первое изображение в галерее">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://hyperpc.ru/images/company/tour/watercooling_assembly/update/hyperpc_watercooling_assembly_head_update.jpg" class="d-block w-100 gallery-image"
+                         width="600" height="400"
+                         alt="Второе изображение в галерее">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://royal-computers.ru/upload/thumbs/config/default/bg_638dcc.png" class="d-block w-100 gallery-image"
+                         width="600" height="400"
+                         alt="Третье изображение в галерее">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://vtop-shop.com.ua/wp-content/uploads/konfyhurator-pk-onlayn-870x400.jpeg" class="d-block w-100 gallery-image"
+                         width="600" height="400"
+                         alt="Четвертое изображение в галерее">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
 
-    CLIENT:
-    Компьютердің бөлшектерін құрастыра алады
-    Өзі құрған тауарлардың тізімін көре алады
-    Тауардың бағасын көре алады
-    Қазақша және ағылшын тілінде беткі жазбаларды өзгерте алады
-    Сайттан іздеу жасай алады
-    Сатылымда тұрғанда продуктті көре алады
-    CRUD
-
-    ADMIN:
-    Компьютердің бөлшектерін құрастыра алады
-    Қазақша және ағылшын тілінде беткі жазбаларды өзгерте алады
-    Сайттан іздеу жасай алады
-    Сатылымда тұрғанда продуктті көре алады
-    Сатылымда тұрғанда продуктке өзгеріс енгізе алады
-    Жаңадан тауар қоса алады
-    Заказ берген клиенттердің сборкасын тізімін көре алады
-    CRUD</h4>
 </body>
 </html>
