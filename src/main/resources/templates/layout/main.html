@@ -5,8 +5,6 @@
       xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
 <head>
     <meta charset="UTF-8"/>
-    <!--/*@thymesVar id="DECORATOR_TITLE" type=""*/-->
-    <!--/*@thymesVar id="CONTENT_TITLE" type=""*/-->
     <title layout:title-pattern="${DECORATOR_TITLE} - ${CONTENT_TITLE}" th:text="${DECORATOR_TITLE}">computer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link th:href="@{'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css'}" rel="stylesheet"
