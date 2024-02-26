@@ -7,10 +7,3 @@ nav {
     top: 0;
     z-index: 1000; /* Устанавливаем z-index, чтобы таббар был поверх других элементов */
 }
-
-/* Дополнительные стили по желанию */
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-}

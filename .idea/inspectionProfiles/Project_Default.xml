@@ -4,13 +4,8 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="3">
-            <item index="0" class="java.lang.String" itemvalue="layout:decorate" />
-            <item index="1" class="java.lang.String" itemvalue="layout:title" />
-            <item index="2" class="java.lang.String" itemvalue="layout:fragment" />
-            <item index="0" class="java.lang.String" itemvalue="layout:title" />
-            <item index="1" class="java.lang.String" itemvalue="layout:fragment" />
-            <item index="2" class="java.lang.String" itemvalue="layout:decorate" />
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="layout:fragment" />
           </list>
         </value>
       </option>
