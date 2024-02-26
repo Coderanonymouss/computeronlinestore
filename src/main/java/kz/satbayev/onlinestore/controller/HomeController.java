@@ -2,9 +2,9 @@ package kz.satbayev.onlinestore.controller;
 
 import kz.satbayev.onlinestore.model.entity.Company;
 import kz.satbayev.onlinestore.model.entity.ShopItems;
-import kz.satbayev.onlinestore.service.AllCategoriesService;
-import kz.satbayev.onlinestore.service.CompanyService;
-import kz.satbayev.onlinestore.service.ItemService;
+import kz.satbayev.onlinestore.service.impl.AllCategoriesServiceImpl;
+import kz.satbayev.onlinestore.service.impl.CompanyServiceImpl;
+import kz.satbayev.onlinestore.service.impl.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,21 +17,21 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private final AllCategoriesService allCategoriesService;
-    private final CompanyService companyService;
-    private final ItemService itemService;
+    private final AllCategoriesServiceImpl allCategoriesServiceImpl;
+    private final CompanyServiceImpl companyServiceImpl;
+    private final ItemServiceImpl itemServiceImpl;
 
     @Autowired
-    public HomeController(AllCategoriesService allCategoriesService, CompanyService companyService, ItemService itemService) {
-        this.allCategoriesService = allCategoriesService;
-        this.companyService = companyService;
-        this.itemService = itemService;
+    public HomeController(AllCategoriesServiceImpl allCategoriesServiceImpl, CompanyServiceImpl companyServiceImpl, ItemServiceImpl itemServiceImpl) {
+        this.allCategoriesServiceImpl = allCategoriesServiceImpl;
+        this.companyServiceImpl = companyServiceImpl;
+        this.itemServiceImpl = itemServiceImpl;
     }
 
 
     @GetMapping("/")
     public String index(Model model) {
-        List<ShopItems> items = itemService.getAllItems();
+        List<ShopItems> items = itemServiceImpl.getAllItems();
         model.addAttribute("tovary", items);
         return "index";
     }
@@ -43,11 +43,11 @@ public class HomeController {
 
     @GetMapping("/details/{id}")
     public String details(Model model, @PathVariable(name = "id") Long id) {
-        ShopItems item = itemService.getItem(id);
-        List<Company> companies = companyService.getAllCompany();
+        ShopItems item = itemServiceImpl.getItem(id);
+        List<Company> companies = companyServiceImpl.getAllCompany();
         model.addAttribute("companies", companies);
         model.addAttribute("item", item);
-        allCategoriesService.getAll(model);
+        allCategoriesServiceImpl.getAll(model);
 
         return "details";
     }

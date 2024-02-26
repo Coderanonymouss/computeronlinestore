@@ -11,6 +11,7 @@ body {
 
 /* Стили для footer */
 footer {
+    position: fixed;
     width: 100%;
     background-color: #ded7d7;
     text-align: center;
