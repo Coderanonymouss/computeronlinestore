@@ -1,0 +1,15 @@
+
+.bg-custom {
+    background-color: #f0f0f0; /* Цвет фона */
+}
+
+.gallery-image {
+    border-radius: 10px; /* закругление углов */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень */
+}
+
+.carousel-control-next-icon {
+    color: red;
+    font-size: 2rem;
+}
+
