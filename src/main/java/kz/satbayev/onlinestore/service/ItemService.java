@@ -1,7 +1,7 @@
 package kz.satbayev.onlinestore.service;
 
 import kz.satbayev.onlinestore.model.entity.ShopItems;
-import kz.satbayev.onlinestore.model.entity.ShopItemsRepository;
+import kz.satbayev.onlinestore.model.repository.ShopItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +19,10 @@ public class ItemService {
 
     public List<ShopItems> getAllItems() {
         return shopItemsRepository.findAll();
+    }
+
+    public ShopItems getItem(Long id) {
+
+        return shopItemsRepository.findByIdAndAmountGreaterThan(id,0L);
     }
 }

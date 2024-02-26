@@ -1,0 +1,81 @@
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/main.html"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title layout:title="Home">Home</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-6 offset-3">
+                <div class="form-group">
+                    <label th:text="#{label.name}">
+
+                    </label>
+                    <input type="text" disabled class="form-control plain-text" th:value="${ item!=null?item.name:' '}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.price}">
+
+                    </label>
+                    <input type="number" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.price:'0'}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.amount}">
+
+                    </label>
+                    <input type="number" disabled class="form-control plain-text" min="0"
+                           th:value="${item!=null?item.amount:'0'}">
+                </div>
+
+
+                <div class="form-group">
+                    <label th:text="#{label.company}">
+                    </label>
+                    <input type="text" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.company.name:'null'}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.cooler}">
+                    </label>
+                    <input type="text" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.coolerCategories.name:'null'}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.matrix}">
+                    </label>
+                    <input type="text" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.matrixCategories.name:'null'}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.processor}">
+                    </label>
+                    <input type="text" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.processorCategories.name:'null'}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.ram}">
+                    </label>
+                    <input type="text" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.ramCategories.name:'null'}">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.videoCard}">
+                    </label>
+                    <input type="text" disabled class="form-control plain-text"
+                           th:value="${item!=null?item.videoCardCategories.name:'null'}">
+                </div>
+                <div class="form-group">
+                    <a th:href="@{'/edit-item/' + ${item.id}}" class="btn btn-success"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

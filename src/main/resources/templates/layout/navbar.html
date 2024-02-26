@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #820011">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{'/'}">
+                <img class="img"
+                     src="https://www.nicepng.com/png/detail/30-300136_the-computer-store-the-computer-store-logo-logo.png"
+                     width="100" height="42" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{'/'}">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{'/about'}">about</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{'/login'}">login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{'/register'}">register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Javascript:value(0)"
+                           onclick="document.getElementById('logoutFormId').submit()"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{'/add-item'}">addItem</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search" th:action="@{'/search'}" method="get">
+                    <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="?lng=ru">RUS</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="?lng=en">ENG</a>
+                        </li>
+                    </ul>
+                    <input class="form-control me-2" type="search" name="search_name"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>  <!--navbar-->

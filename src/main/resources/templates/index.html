@@ -26,7 +26,7 @@
                 <td th:text="${it.name}" ></td>
                 <td th:text="${it.price}" ></td>
                 <td><a th:href="@{'/details/'+ ${it.id}}" class="btn btn-info btn-sm"
-                       >details</a></td>
+                       th:text="#{label.details}">details</a></td>
             </tr>
             </tbody>
         </table>
