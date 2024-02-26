@@ -1,4 +1,6 @@
 kz\satbayev\onlinestore\ComputerStoreApplication.class
+kz\satbayev\onlinestore\model\entity\ShopItemsRepository.class
+kz\satbayev\onlinestore\config\WebMvcConfig.class
 kz\satbayev\onlinestore\model\entity\Categories.class
 kz\satbayev\onlinestore\model\entity\Company.class
 kz\satbayev\onlinestore\model\entity\VideoCardCategories.class
