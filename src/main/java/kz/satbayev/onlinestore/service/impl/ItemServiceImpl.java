@@ -39,4 +39,17 @@ public class ItemServiceImpl implements ItemService {
 
         return shopItemsRepository.findByIdAndAmountGreaterThan(id,0L);
     }
+
+    @Override
+    @Transactional
+    public ShopItems saveItem(ShopItems item) {
+
+        return shopItemRepository.save(item);
+    }
+
+    @Override
+    @Transactional
+    public void deleteItem(ShopItems item) {
+        shopItemRepository.delete(item);
+    }
 }

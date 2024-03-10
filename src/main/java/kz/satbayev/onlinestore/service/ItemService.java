@@ -12,4 +12,8 @@ public interface ItemService {
 
     ShopItems getItem(Long id);
 
+    ShopItems saveItem(ShopItems item);
+
+    void deleteItem(ShopItems item);
+
 }

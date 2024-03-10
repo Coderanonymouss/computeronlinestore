@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @Controller
@@ -125,6 +126,70 @@ public class HomeController {
                 .videoCardCategories(videoCards)
                 .build();
         itemService.addItems(item);
+        return "redirect:/";
+    }
+
+    @GetMapping("/editItem/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String editItem(Model model, @PathVariable(name = "id") Long id) {
+        ShopItems item = itemService.getItem(id);
+        List<Company> companies = companyService.getAllCompany();
+        model.addAttribute("item", item);
+        model.addAttribute("companies", companies);
+        allCategoriesService.getAll(model);
+        return "editItem";
+    }
+
+    @GetMapping("/403")
+    public String accesDenied(Model model) {
+        model.addAttribute("currentUser", userService.getUserData());
+        return "mistake";
+    }
+
+    @PostMapping("/saveItem")
+    public String saveItem(@RequestParam(value = "id", defaultValue = "0") Long id,
+                           @RequestParam(value = "item_name", defaultValue = "No Item") String name,
+                           @RequestParam(value = "item_price", defaultValue = "0") Long price,
+                           @RequestParam(value = "item_amount", defaultValue = "0") Long amount,
+                           @RequestParam(value = "item_company") Long company,
+                           @RequestParam(value = "item_cooler") Long cooler,
+                           @RequestParam(value = "item_matrix") Long matrix,
+                           @RequestParam(value = "item_processor") Long processor,
+                           @RequestParam(value = "item_ram") Long ram,
+                           @RequestParam(value = "item_videoCard") Long videoCard) {
+
+        Company companies = companyService.getCompany(company);
+        CoolerCategories coolers = allCategoriesService.getCooler(cooler);
+        MatrixCategories matrices = allCategoriesService.getMatrix(matrix);
+        ProcessorCategories processors = allCategoriesService.getProcessor(processor);
+        RAMCategories rams = allCategoriesService.getRAM(ram);
+        VideoCardCategories videoCards = allCategoriesService.getVideoCard(videoCard);
+        ShopItems item = itemService.getItem(id);
+        if (Objects.nonNull(item)) {
+            ShopItems items = ShopItems
+                    .builder()
+                    .id(id)
+                    .company(companies)
+                    .coolerCategories(coolers)
+                    .matrixCategories(matrices)
+                    .processorCategories(processors)
+                    .ramCategories(rams)
+                    .videoCardCategories(videoCards)
+                    .name(name)
+                    .amount(amount)
+                    .price(price)
+                    .build();
+            itemService.saveItem(items);
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping("/deleteItem")
+    public String deleteItem(@RequestParam(name = "id", defaultValue = "0") Long id) {
+        ShopItems item = itemService.getItem(id);
+        if (Objects.nonNull(item)) {
+            itemService.deleteItem(item);
+        }
         return "redirect:/";
     }
 
