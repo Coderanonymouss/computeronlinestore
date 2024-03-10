@@ -1,0 +1,88 @@
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/main.html"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title layout:title="Home">Home</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <h2 class="display-1 text-center"></h2>
+            <form th:action="@{'/add-item'}" method="post">
+                <div class="form-group">
+                    <label th:text="#{label.name}"></label>
+                    <input type="text" class="form-control" name="item_name">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.price}"></label>
+                    <input type="number" class="form-control" name="item_price" max="10000000" min="0">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.amount}"></label>
+                    <input type="number" class="form-control" name="item_amount" max="1000000" min="0">
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.company}"></label>
+
+                    <select class="form-control" name="item_company">
+                        <option th:each="cnt : ${companies}" th:text="${cnt.name}"
+                                th:value="${cnt.id}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Выберите Cooler</label>
+                    <select class="form-control" name="item_cooler">
+                        <option th:each="cooler : ${coolers}" th:text="${cooler.name+' '+cooler.price+' '+   'tg'}"
+                                th:value="${cooler.id}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Выберите Matrix</label>
+                    <select class="form-control" name="item_matrix">
+                        <option th:each="matrix : ${matrices}" th:text="${matrix.name + ' '+matrix.price+' '+'tg'}"
+                                th:value="${matrix.id}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Выберите Processor</label>
+                    <select class="form-control" name="item_processor">
+
+                        <option th:each="processor : ${processors}"
+                                th:text="${processor.name +' '+processor.price+' '+'tg'}"
+                                th:value="${processor.id}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Выберите RAM</label>
+                    <select class="form-control" name="item_ram">
+                        <option th:each="ram : ${rams}" th:text="${ram.name +' '+ram.price+' '+'tg'}"
+                                th:value="${ram.id}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Выберите videoCard</label>
+                    <select class="form-control" name="item_videoCard">
+                        <option th:each="videoCard : ${videoCards}"
+                                th:text="${videoCard.name +' '+videoCard.price+' '+'tg'}"
+                                th:value="${videoCard.id}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-success" th:text="#{button.add}"></button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
