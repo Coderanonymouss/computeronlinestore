@@ -14,6 +14,7 @@ public class FlywayConfig {
     public Flyway flyway (DataSource dataSource){
         Flyway flyway= Flyway.configure()
                 .dataSource(dataSource)
+                .baselineOnMigrate(true)
                 .load();
         flyway.migrate();
         return flyway;

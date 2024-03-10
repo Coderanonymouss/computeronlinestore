@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ItemService {
 
+    ShopItems addItems(ShopItems item);
+
     List<ShopItems> getAllItems();
 
     ShopItems getItem(Long id);

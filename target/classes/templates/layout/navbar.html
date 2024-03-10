@@ -1,7 +1,8 @@
-<div class="container-fluid">
-<link th:href="@{/css/navbar.css}" rel="stylesheet"/>
+
 <div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #820011">
+    <link th:href="@{/css/navbar.css}" rel="stylesheet"/>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar" style="background-color: #820011"
+         xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{'/'}">
                 <img class="img"
@@ -31,8 +32,8 @@
                         <a class="nav-link" href="Javascript:value(0)"
                            onclick="document.getElementById('logoutFormId').submit()"></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{'/add-item'}">addItem</a>
+                    <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MODERATOR')   " >
+                        <a class="nav-link" th:href="@{'/add-item'}">Add Item</a>
                     </li>
 
                 </ul>
@@ -41,16 +42,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="?lng=ru">RUS</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="?lng=en">ENG</a>
                         </li>
                     </ul>
-                    <input class="form-control me-2" type="search" name="search_name"
-                           aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">search</button>
+                    <input class="form-control me-2" type="search" name="search_name" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 </div>  <!--navbar-->
+
+<script th:src="@{/js/navbar.js}"></script>
