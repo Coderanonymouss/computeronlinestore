@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/main.html"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title layout:title="Home">edit_item</title>
+    <link th:href="@{/css/mistake.css}" rel="stylesheet"/>
+    <script th:src="@{/js/mistake.js}"></script>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h1 class="text-center" th:text="#{label.403}"> 403 Access forbidden</h1>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

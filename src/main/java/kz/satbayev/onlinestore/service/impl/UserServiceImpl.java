@@ -1,10 +1,12 @@
 package kz.satbayev.onlinestore.service.impl;
 
+
 import kz.satbayev.onlinestore.model.entity.Roles;
 import kz.satbayev.onlinestore.model.entity.Users;
 import kz.satbayev.onlinestore.model.repository.RoleRepository;
 import kz.satbayev.onlinestore.model.repository.UserRepository;
 import kz.satbayev.onlinestore.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -42,6 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Users getUserByEmail(String email) {
+        log.info("Searching user by email: {}", email);
         return userRepository.findByEmail(email);
     }
 
@@ -58,38 +62,47 @@ public class UserServiceImpl implements UserService {
                 roles.add(role);
                 user.setRoles(roles);
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
+                log.info("User registered successfully");
                 return userRepository.save(user);
             }
         }
+        log.info("User failed to register");
         return null;
     }
 
-    public String addUsers(String email,String password,String repassword,String fullName){
+    public String addUsers(String email, String password, String repassword, String fullName) {
+        log.info("Adding new user with email: {}", email);
         if (password.equals(repassword)) {
             Users newUser = new Users();
             newUser.setFullName(fullName);
             newUser.setPassword(password);
             newUser.setEmail(email);
             if (!fullName.isEmpty() && !password.isEmpty() && !email.isEmpty()) {
+                log.info("User added successfully");
                 return "redirect:/register?success";
             }
         }
+         log.info("User addition failed");
         return "redirect:/register?error";
     }
 
     @Override
     public Users saveUser(Users user) {
+        log.info("Saving user: {}", user);
         return userRepository.save(user);
     }
 
     @Override
     public List<Users> getAllUsers() {
+        log.info("Fetching all users");
         return userRepository.findAll();
     }
 
     @Override
     public Users getUser(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid element id: " + id));
+        log.info("Fetching user by ID: {}", id);
+        return userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid element id: " + id));
     }
 
     public Users getUserData() {
