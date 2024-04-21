@@ -41,18 +41,6 @@ public class ItemServiceImpl implements ItemService {
     @Override
     @Transactional
     public ShopItems saveItem(ShopItems item) {
-        return shopItemRepository.save(item);
-    }
-
-    @Override
-    @Transactional
-    public void deleteItem(ShopItems item) {
-        shopItemRepository.delete(item);
-    }
-
-    @Override
-    @Transactional
-    public ShopItems saveItem(ShopItems item) {
 
         return shopItemRepository.save(item);
     }
