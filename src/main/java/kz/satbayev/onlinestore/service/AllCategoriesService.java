@@ -13,7 +13,7 @@ public interface AllCategoriesService {
 
     List<ProcessorCategories> getAllProcessor();
 
-    ProcessorCategories g etProcessor(long id);
+    ProcessorCategories getProcessor(long id);
 
     List<MatrixCategories> getAllMatrix();
 
