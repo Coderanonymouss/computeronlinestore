@@ -50,4 +50,9 @@ public class ItemServiceImpl implements ItemService {
     public void deleteItem(ShopItems item) {
         shopItemRepository.delete(item);
     }
+
+    public List<ShopItems> getSearchItem(String name) {
+        return shopItemRepository.findAllByNameIsContainingIgnoreCase(name);
+
+    }
 }

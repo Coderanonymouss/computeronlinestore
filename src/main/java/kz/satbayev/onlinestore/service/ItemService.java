@@ -16,4 +16,6 @@ public interface ItemService {
 
     void deleteItem(ShopItems item);
 
+    List<ShopItems> getSearchItem(String name);
+
 }

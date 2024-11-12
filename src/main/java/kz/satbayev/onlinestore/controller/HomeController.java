@@ -49,6 +49,13 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/search")
+    public String search(@RequestParam(name = "search_name") String name, Model model) {
+        List<ShopItems> items = itemService.getSearchItem(name);
+        model.addAttribute("tovary", items);
+        return "index";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
@@ -80,6 +87,11 @@ public class HomeController {
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("currentUser", userService.getUserData());
+        return "login";
+    }
+
+    @GetMapping("logout")
+    public String logout(Model model) {
         return "login";
     }
 
